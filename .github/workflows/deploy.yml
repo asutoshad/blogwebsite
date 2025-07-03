@@ -9,7 +9,7 @@ on:
 
 jobs:
   backend-build:
-    runs-on: [self-hosted, linux, backend]
+    runs-on: [backend, self-hosted, linux]
 
     steps:
       - name: Checkout code
@@ -42,7 +42,7 @@ jobs:
           tags: ${{ secrets.DOCKER_USERNAME }}/backend2:${{ startsWith(github.ref, 'refs/tags/v') && github.ref_name || format('dev-{0}', github.sha) }}
 
   frontend-build:
-    runs-on: [self-hosted, linux, frontend]
+    runs-on: [frontend,self-hosted, linux]
 
     steps:
       - name: Checkout code
